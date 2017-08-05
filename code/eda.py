@@ -6,6 +6,7 @@ Author: Jihoon Kim
 
 import matplotlib.pyplot as plt
 import seaborn as sns
+import pandas as pd
 
 
 def display_basic_info(data):
