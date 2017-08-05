@@ -4,6 +4,7 @@ Created on 8/5/17
 Author: Jihoon Kim
 """
 
+import numpy as np
 import pandas as pd
 import config
 
@@ -51,6 +52,10 @@ def apply_task_condition(data):
     Missing values: denoted by quotation marks (‘?’). Skip data samples with missing values in the target.
     Features to ignore: ‘symboling’
     """
-    not_null = data[data["normalized_losses"] != '?']
+    not_null = data[data.normalized_losses.notnull()]
     conditioned = not_null.drop("symboling", axis=1)
     return conditioned
+
+
+def transform_null_values(data):
+    return data.replace('?', np.NaN)
