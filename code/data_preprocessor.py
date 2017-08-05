@@ -39,7 +39,18 @@ def load_data():
     data = pd.read_csv(config.DATA_DIR+'imports-85.data', names=features)
     return data
 
+
 def split_X_y(data):
     y = data["normalized_losses"]
     X = data.drop("normalized_losses", axis=1)
     return X, y
+
+
+def apply_task_condition(data):
+    """
+    Missing values: denoted by quotation marks (‘?’). Skip data samples with missing values in the target.
+    Features to ignore: ‘symboling’
+    """
+    not_null = data[data["normalized_losses"] != '?']
+    conditioned = not_null.drop("symboling", axis=1)
+    return conditioned
