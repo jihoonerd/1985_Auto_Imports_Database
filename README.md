@@ -11,7 +11,8 @@ Prediction Model of Loss Payment Ratio of Motors, using 1985 Auto Imports Databa
 target.
 * Features to ignore: ‘symboling’
 
-## Flowchart
+## Workflow
+<img src="./figure/workflow.png" alt="WorkFlow" align="center" width="900px"/>
 
 ## Documentation
 
