@@ -125,9 +125,9 @@ See `./documents/1985_auto_imports_database.pdf` for documentation.
 #### Case5
 |Random State|Model|MSE|RMSE|
 |---|---|---|---|
-|86|Average|231.3396|15.2099|
-|86|Linear Regression|215.0494|14.6646|
-|86|Neural Network|317.1345|17.8083|
+|109|Average|231.3396|15.2099|
+|109|Linear Regression|215.0494|14.6646|
+|109|Neural Network|317.1345|17.8083|
 
 ## Demo
 You can simply execute demo file by:
