@@ -72,6 +72,26 @@ See `./documents/1985_auto_imports_database.pdf` for documentation.
 |72|XGBoost|649.5410|25.4861|
 |72|Neural Network|446.9455|21.1411|
 
+#### Case4
+|Random State|Model|MSE|RMSE|
+|---|---|---|---|
+|86|Ridge|383.7710|19.5901|
+|86|Elastic Net|344.4253|18.5587|
+|86|Random Forest|852.8695|29.2039|
+|86|Extra Tree|877.0165|29.6145|
+|86|XGBoost|512.2365|22.6326|
+|86|Neural Network|524.5276|22.9026|
+
+#### Case5
+|Random State|Model|MSE|RMSE|
+|---|---|---|---|
+|109|Ridge|290.9115|17.0561|
+|109|Elastic Net|241.7871|15.5495|
+|109|Random Forest|534.7114|23.1238|
+|109|Extra Tree|533.6554|23.1010|
+|109|XGBoost|396.3412|19.9083|
+|109|Neural Network|445.1902|21.0995|
+
 ### Stacking
 
 #### Case1
@@ -94,6 +114,20 @@ See `./documents/1985_auto_imports_database.pdf` for documentation.
 |72|Average|297.4342|17.2463|
 |72|Linear Regression|309.2991|17.5869|
 |72|Neural Network|330.5245|18.1803|
+
+#### Case4
+|Random State|Model|MSE|RMSE|
+|---|---|---|---|
+|86|Average|451.7685|21.2548|
+|86|Linear Regression|428.1003|20.6906|
+|86|Neural Network|419.6526|20.4854|
+
+#### Case5
+|Random State|Model|MSE|RMSE|
+|---|---|---|---|
+|86|Average|231.3396|15.2099|
+|86|Linear Regression|215.0494|14.6646|
+|86|Neural Network|317.1345|17.8083|
 
 ## Demo
 You can simply execute demo file by:
