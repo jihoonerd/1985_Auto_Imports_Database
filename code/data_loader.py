@@ -37,12 +37,14 @@ features = ['symboling',
 
 
 def load_data():
+    """Returns dataset replaced with null values('?') to np.NaN"""
     data = pd.read_csv(config.DATA_DIR+'imports-85.data', names=features)
+    data = data.replace('?', np.NaN)
     return data
 
 
 def split_X_y(data):
-    y = data["normalized_losses"]
+    y = pd.to_numeric(data["normalized_losses"])
     X = data.drop("normalized_losses", axis=1)
     return X, y
 
@@ -55,7 +57,3 @@ def apply_task_condition(data):
     not_null = data[data.normalized_losses.notnull()]
     conditioned = not_null.drop("symboling", axis=1)
     return conditioned
-
-
-def transform_null_values(data):
-    return data.replace('?', np.NaN)
