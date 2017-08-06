@@ -34,7 +34,9 @@ def ridge_grid(X_train, y_train, X_test=None, y_test=None):
         y_train_pred = grid_search.predict(X_train)
         print("Training Set Error (MSE): ", mean_squared_error(y_train, y_train_pred))
         y_pred = grid_search.predict(X_test)
-        print("Test Set Error     (MSE): ", mean_squared_error(y_test, y_pred))
+        mse = mean_squared_error(y_test, y_pred)
+        print("Test Set Error     (MSE): ", mse)
+        print("Test Set Error    (RMSE): ", np.sqrt(mse))
     return grid_search
 
 
@@ -53,7 +55,9 @@ def elastic_net_grid(X_train, y_train, X_test=None, y_test=None):
         y_train_pred = grid_search.predict(X_train)
         print("Training Set Error (MSE): ", mean_squared_error(y_train, y_train_pred))
         y_pred = grid_search.predict(X_test)
-        print("Test Set Error     (MSE): ", mean_squared_error(y_test, y_pred))
+        mse = mean_squared_error(y_test, y_pred)
+        print("Test Set Error     (MSE): ", mse)
+        print("Test Set Error    (RMSE): ", np.sqrt(mse))
     return grid_search
 
 
@@ -73,7 +77,9 @@ def rf_grid(X_train, y_train, X_test=None, y_test=None):
         y_train_pred = grid_search.predict(X_train)
         print("Training Set Error (MSE): ", mean_squared_error(y_train, y_train_pred))
         y_pred = grid_search.predict(X_test)
-        print("Test Set Error     (MSE): ", mean_squared_error(y_test, y_pred))
+        mse = mean_squared_error(y_test, y_pred)
+        print("Test Set Error     (MSE): ", mse)
+        print("Test Set Error    (RMSE): ", np.sqrt(mse))
     return grid_search
 
 
@@ -94,7 +100,9 @@ def et_grid(X_train, y_train, X_test=None, y_test=None):
         y_train_pred = grid_search.predict(X_train)
         print("Training Set Error (MSE): ", mean_squared_error(y_train, y_train_pred))
         y_pred = grid_search.predict(X_test)
-        print("Test Set Error     (MSE): ", mean_squared_error(y_test, y_pred))
+        mse = mean_squared_error(y_test, y_pred)
+        print("Test Set Error     (MSE): ", mse)
+        print("Test Set Error    (RMSE): ", np.sqrt(mse))
     return grid_search
 
 
@@ -113,7 +121,9 @@ def xgb_grid(X_train, y_train, X_test=None, y_test=None):
         y_train_pred = grid_search.predict(X_train)
         print("Training Set Error (MSE): ", mean_squared_error(y_train, y_train_pred))
         y_pred = grid_search.predict(X_test)
-        print("Test Set Error     (MSE): ", mean_squared_error(y_test, y_pred))
+        mse = mean_squared_error(y_test, y_pred)
+        print("Test Set Error     (MSE): ", mse)
+        print("Test Set Error    (RMSE): ", np.sqrt(mse))
     return grid_search
 
 
@@ -133,7 +143,9 @@ def neural_net(X_train, y_train, X_test=None, y_test=None):
         y_train_pred = model.predict(np.array(X_train))
         print("Training Set Error (MSE): ", mean_squared_error(y_train, y_train_pred))
         y_pred = model.predict(np.array(X_test))
-        print("Test Set Error     (MSE): ", mean_squared_error(y_test, y_pred))
+        mse = mean_squared_error(y_test, y_pred)
+        print("Test Set Error     (MSE): ", mse)
+        print("Test Set Error    (RMSE): ", np.sqrt(mse))
     return model
 
 
@@ -182,7 +194,9 @@ def stacking_average_blender_predictor(X_train, y_train, X_test, y_test, report=
     if report:
         print("\n\n========== [Stacking Report: AVG Blender] ==========")
         print("AVG Blender Stacking Training Error (MSE): ", mean_squared_error(y_train, y_train_pred))
-        print("AVG Blender Stacking Test Error (MSE)    : ", mean_squared_error(y_test, y_pred))
+        mse = mean_squared_error(y_test, y_pred)
+        print("AVG Blender Stacking Test Error (MSE)    : ", mse)
+        print("AVG Blender Stacking Test Error(RMSE)    : ", np.sqrt(mse))
 
     return y_test, y_pred
 
@@ -195,7 +209,9 @@ def stacking_linear_regression_blender(X_train, y_train, X_test, y_test, report=
     if report:
         print("\n\n========== [Stacking Report: OLS Blender] ==========")
         print("OLS Blender Stacking Training Error (MSE): ", mean_squared_error(y_train, y_train_pred))
-        print("OLS Blender Stacking Test Error (MSE)    : ", mean_squared_error(y_test, y_pred))
+        mse = mean_squared_error(y_test, y_pred)
+        print("OLS Blender Stacking Test Error (MSE)    : ", mse)
+        print("OLS Blender Stacking Test Error(RMSE)    : ", np.sqrt(mse))
 
     return y_test, y_pred
 
@@ -215,6 +231,8 @@ def stacking_neural_net_blender(X_train, y_train, X_test, y_test, report=True):
     if report:
         print("\n\n========== [Stacking Report: Neural Net Blender] ==========")
         print("Neural Net Blender Stacking Training Error (MSE): ", mean_squared_error(y_train, y_train_pred))
-        print("Neural Net Blender Stacking Test Error (MSE)    : ", mean_squared_error(y_test, y_pred))
+        mse = mean_squared_error(y_test, y_pred)
+        print("Neural Net Blender Stacking Test Error (MSE)    : ", mse)
+        print("Neural Net Blender Stacking Test Error(RMSE)    : ", np.sqrt(mse))
 
     return y_test, y_pred

@@ -11,7 +11,7 @@ from modeling import ridge_grid, elastic_net_grid, rf_grid, et_grid, xgb_grid, n
                      stacking_average_blender_predictor, stacking_linear_regression_blender, stacking_neural_net_blender
 from eda import *
 
-random_state = 16
+random_state = 72
 
 # -------------------- [Data Loading] --------------------
 data = apply_task_condition(load_data())
