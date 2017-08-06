@@ -184,7 +184,7 @@ def stacking_average_blender_predictor(X_train, y_train, X_test, y_test, report=
         print("AVG Blender Stacking Training Error (MSE): ", mean_squared_error(y_train, y_train_pred))
         print("AVG Blender Stacking Test Error (MSE)    : ", mean_squared_error(y_test, y_pred))
 
-    return y_pred, y_test
+    return y_test, y_pred
 
 
 def stacking_linear_regression_blender(X_train, y_train, X_test, y_test, report=True):
@@ -197,7 +197,7 @@ def stacking_linear_regression_blender(X_train, y_train, X_test, y_test, report=
         print("OLS Blender Stacking Training Error (MSE): ", mean_squared_error(y_train, y_train_pred))
         print("OLS Blender Stacking Test Error (MSE)    : ", mean_squared_error(y_test, y_pred))
 
-    return y_pred, y_test
+    return y_test, y_pred
 
 
 def stacking_neural_net_blender(X_train, y_train, X_test, y_test, report=True):
@@ -217,4 +217,4 @@ def stacking_neural_net_blender(X_train, y_train, X_test, y_test, report=True):
         print("Neural Net Blender Stacking Training Error (MSE): ", mean_squared_error(y_train, y_train_pred))
         print("Neural Net Blender Stacking Test Error (MSE)    : ", mean_squared_error(y_test, y_pred))
 
-    return y_pred, y_test
+    return y_test, y_pred
