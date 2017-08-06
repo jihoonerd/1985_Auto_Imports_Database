@@ -15,6 +15,15 @@ target.
 
 ## Documentation
 
+## Dependencies
+* Python: 3.5.3
+* TensorFlow: 1.2.1
+* Keras: 2.0.6
+* Scikit-Learn: 0.18.2
+* Numpy: 1.13.1
+* Pandas: 0.20.2
+* XGBoost: 0.6
+
 ## Instruction
 
 ## Conclusion
