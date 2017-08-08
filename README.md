@@ -27,6 +27,9 @@ target.
 ## Workflow
 <img src="./figure/workflow.png" alt="WorkFlow" align="center" width="900px"/>
 
+### Stacking Layer
+<img src="./figure/stacking_layer.png" alt="WorkFlow" align="center" width="900px"/>
+
 ## Documentation
 See `./documents/1985_auto_imports_database.pdf` for documentation. (In progress, will be completed soon.)
 
