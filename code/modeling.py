@@ -329,16 +329,20 @@ def plot_performance(test_blender_input, test_blender_output, stk_avg_y_pred, st
     ax[0].plot(test_blender_input.index, test_blender_output, label="y_true")
     ax[0].plot(test_blender_input.index, stk_avg_y_pred, label="y_pred")
     ax[0].legend()
+    ax[0].set_ylabel('Normalized Loss')
     ax[0].set_title('Average Blender')
 
     ax[1].plot(test_blender_input.index, test_blender_output, label="y_true")
     ax[1].plot(test_blender_input.index, stk_lr_y_pred, label="y_pred")
     ax[1].legend()
+    ax[1].set_ylabel('Normalized Loss')
     ax[1].set_title("Linear Regression Blender")
 
     ax[2].plot(test_blender_input.index, test_blender_output, label="y_true")
     ax[2].plot(test_blender_input.index, stk_nn_y_pred, label="y_pred")
     ax[2].legend()
+    ax[2].set_xlabel('Test data Index')
+    ax[2].set_ylabel('Normalized Loss')
     ax[2].set_title("Neural Network Blender")
 
     plt.savefig(FIGURE_DIR + str(random_state) + '_Performance_Figure.png')
