@@ -40,6 +40,9 @@ See `./documents/1985_auto_imports_database.pdf` for documentation.
 * XGBoost: 0.6
 
 ## Performance
+* You can change random state at: `./code/config.py`
+* Performance is automatically recorded in `./log/` directory.
+* Performance below can be different with the same random state if algorithm uses stochastic method.
 
 ### Single Model
 #### Case1
