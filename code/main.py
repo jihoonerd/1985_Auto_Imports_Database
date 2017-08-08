@@ -8,10 +8,9 @@ from data_loader import load_data, apply_task_condition, split_X_y
 from sklearn.model_selection import train_test_split
 from data_processor import full_pipeline_encoder
 from modeling import ridge_grid, elastic_net_grid, rf_grid, et_grid, xgb_grid, neural_net, stacking_setup,\
-                     stacking_average_blender_predictor, stacking_linear_regression_blender, stacking_neural_net_blender
+                     stacking_average_blender, stacking_linear_regression_blender, stacking_neural_net_blender
 from eda import *
-
-random_state = 109
+from config import random_state
 
 # -------------------- [Data Loading] --------------------
 data = apply_task_condition(load_data())
@@ -37,8 +36,8 @@ nn_model = neural_net(X_train_stdby, y_train_stdby, X_test_stdby, y_test_stdby)
 # ------------------ [Stacking] ------------------
 
 X_train_stacking, X_train_heldout, y_train_stacking, y_train_heldout = train_test_split(X_train_stdby, y_train_stdby,
-                                                                                          test_size=0.3,
-                                                                                          random_state=random_state)
+                                                                                        test_size=0.3,
+                                                                                        random_state=random_state)
 
 train_blender_input, train_blender_output, test_blender_input, test_blender_output = stacking_setup(X_train_stacking,
                                                                                                     y_train_stacking,
@@ -48,8 +47,13 @@ train_blender_input, train_blender_output, test_blender_input, test_blender_outp
                                                                                                     y_test_stdby)
 
 
-stacking_average_blender_predictor(train_blender_input, train_blender_output, test_blender_input, test_blender_output)
-stacking_linear_regression_blender(train_blender_input, train_blender_output, test_blender_input, test_blender_output)
-stacking_neural_net_blender(train_blender_input, train_blender_output, test_blender_input, test_blender_output)
+stk_avg_y, stck_avg_y_pred = stacking_average_blender(train_blender_input, train_blender_output,
+                                                      test_blender_input, test_blender_output, report=True)
+
+lr_blender = stacking_linear_regression_blender(train_blender_input, train_blender_output,
+                                                test_blender_input, test_blender_output, report=True)
+
+nn_blender = stacking_neural_net_blender(train_blender_input, train_blender_output,
+                                         test_blender_input, test_blender_output, report=True)
 
 # ------------------------------------------------------------
