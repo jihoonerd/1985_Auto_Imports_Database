@@ -44,6 +44,9 @@ See `./documents/1985_auto_imports_database.pdf` for documentation. (In progress
 * Performance is automatically recorded in `./log/` directory.
 * Performance below can be different with the same random state if algorithm uses stochastic method.
 
+### Performance Figure (random_state = 1)
+<img src="./figure/1_Performance_Figure.png" alt="Performance Figure" align="center" width="900px"/>
+
 ### Single Model
 #### Case1
 |Random State|Model|MSE|RMSE|

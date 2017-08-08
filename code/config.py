@@ -5,7 +5,7 @@ Author: Jihoon Kim
 """
 
 # -------------------- PATH --------------------
-random_state = 109
+random_state = 1
 DATA_DIR = '../data/'
 FIGURE_DIR = '../figure/'
 LOG_DIR = '../log/'

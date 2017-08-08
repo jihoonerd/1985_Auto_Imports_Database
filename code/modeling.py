@@ -17,7 +17,8 @@ from sklearn.model_selection import GridSearchCV
 from sklearn.metrics import mean_squared_error
 import numpy as np
 import pandas as pd
-from config import random_state, LOG_DIR
+from config import random_state, LOG_DIR, FIGURE_DIR
+import matplotlib.pyplot as plt
 import os
 
 
@@ -288,7 +289,7 @@ def stacking_linear_regression_blender(X_train, y_train, X_test, y_test, report=
         else:
             save_report.to_csv(LOG_DIR + 'STACKING_linear_regression.csv', mode='a', header=False)
 
-    return blender
+    return y_test, y_pred
 
 
 def stacking_neural_net_blender(X_train, y_train, X_test, y_test, report=True):
@@ -318,4 +319,26 @@ def stacking_neural_net_blender(X_train, y_train, X_test, y_test, report=True):
         else:
             save_report.to_csv(LOG_DIR + 'STACKING_neural_network.csv', mode='a', header=False)
 
-    return blender
+    return y_test, y_pred
+
+
+# -------------------------- [Plot Performance Figure] --------------------------
+def plot_performance(test_blender_input, test_blender_output, stk_avg_y_pred, stk_lr_y_pred, stk_nn_y_pred):
+
+    f, ax = plt.subplots(3, 1, figsize=(12, 10), sharex=True)
+    ax[0].plot(test_blender_input.index, test_blender_output, label="y_true")
+    ax[0].plot(test_blender_input.index, stk_avg_y_pred, label="y_pred")
+    ax[0].legend()
+    ax[0].set_title('Average Blender')
+
+    ax[1].plot(test_blender_input.index, test_blender_output, label="y_true")
+    ax[1].plot(test_blender_input.index, stk_lr_y_pred, label="y_pred")
+    ax[1].legend()
+    ax[1].set_title("Linear Regression Blender")
+
+    ax[2].plot(test_blender_input.index, test_blender_output, label="y_true")
+    ax[2].plot(test_blender_input.index, stk_nn_y_pred, label="y_pred")
+    ax[2].legend()
+    ax[2].set_title("Neural Network Blender")
+
+    plt.savefig(FIGURE_DIR + str(random_state) + '_Performance_Figure.png')
