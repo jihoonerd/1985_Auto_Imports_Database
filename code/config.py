@@ -5,6 +5,8 @@ Author: Jihoon Kim
 """
 
 # -------------------- PATH --------------------
+random_state = 810
 DATA_DIR = '../data/'
 FIGURE_DIR = '../figure/'
+LOG_DIR = '../log/'
 
